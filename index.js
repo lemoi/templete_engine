@@ -153,7 +153,7 @@ exports.getRender=function(filename,path="./templetes"){
 	try{
 		let file=fs.readFileSync(path+'/'+filename,'utf8');
 		let tp=new Templete(file);
-		let name=path+'/__cache__/'+filename.replace(/\..*/,'js');
+		let name=path+'/__cache__/'+filename.replace(/\..*/,'.js');
 		fs.writeFileSync(name,tp.toString());
 		return require(name).bind(null,str);
 	}catch(err){
